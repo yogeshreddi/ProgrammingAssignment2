@@ -1,4 +1,5 @@
 ## makeCacheMatrix() and cacheSolve() functions are used to compute and cache the inverse of a matrix.
+## functions will only work for nonsingular or invertible matrix
 
 ##about makeCacheMatrix()
 ##The function makeCacheMatrix returns a list of functions to
@@ -37,6 +38,9 @@ cacheSolve <- function(x, ...) {
 }
 
 #####Examples
+
+## First example
+
 ##> x<-matrix(c(1,2,6,8),2,2)
 ##> m<-makeCacheMatrix(x)
 ##> cacheSolve(m)
@@ -51,10 +55,16 @@ cacheSolve <- function(x, ...) {
 ##     [,1]  [,2]
 ##[1,] -2.0  1.50
 ##[2,]  0.5 -0.25
+
+##second example
+## taking a new vector y and trying to cache its inverse
+
 ##> y<-matrix(c(3,7,8,11),2,2)
-##> m<-makeCacheMatrix(y)
+##> m<-makeCacheMatrix(y) 
 ##> m$getinverse()
+
 ##  NULL   ----because we didn't caluculate and set the inverse of new matrix y--
+
 ##> cacheSolve(m)
 ##        [,1]       [,2]
 ##[1,] -0.4782609  0.3478261
@@ -63,4 +73,4 @@ cacheSolve <- function(x, ...) {
 ##        [,1]       [,2]
 ##[1,] -0.4782609  0.3478261
 ##[2,]  0.3043478 -0.1304348
-###Please comment on work, Thank you#####
+###Please comment on the work, Thank you#####
