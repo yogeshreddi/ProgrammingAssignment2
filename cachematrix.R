@@ -7,10 +7,8 @@
 ##3.set the value of the inverse of matrix
 ##4.get the value of the inverse of matrix
 
-
 makeCacheMatrix <- function(x = matrix()) {
-  
-  inv <- NULL
+    inv <- NULL
   set <- function(y) {
     x <<- y
     inv <<- NULL
@@ -20,8 +18,6 @@ makeCacheMatrix <- function(x = matrix()) {
   getinverse <- function() inv
   list(set = set, get = get,setinverse = setinverse,getinverse = getinverse)
 }
-
-
 
 ##about cacheSolve()
 ##The function will compute the inverse of a matrix created with makeCacheMatrix().
@@ -39,3 +35,32 @@ cacheSolve <- function(x, ...) {
   x$setinverse(inv)
   return(inv)
 }
+
+#####Examples
+##> x<-matrix(c(1,2,6,8),2,2)
+##> m<-makeCacheMatrix(x)
+##> cacheSolve(m)
+##     [,1]  [,2]
+##[1,] -2.0  1.50
+##[2,]  0.5 -0.25
+##> m$get()
+##     [,1] [,2]
+##[1,]    1    6
+##[2,]    2    8
+##> m$getinverse()
+##     [,1]  [,2]
+##[1,] -2.0  1.50
+##[2,]  0.5 -0.25
+##> y<-matrix(c(3,7,8,11),2,2)
+##> m<-makeCacheMatrix(y)
+##> m$getinverse()
+##  NULL   ----because we didn't caluculate and set the inverse of new matrix y--
+##> cacheSolve(m)
+##        [,1]       [,2]
+##[1,] -0.4782609  0.3478261
+##[2,]  0.3043478 -0.1304348
+##> m$getinverse()
+##        [,1]       [,2]
+##[1,] -0.4782609  0.3478261
+##[2,]  0.3043478 -0.1304348
+###Please comment on work, Thank you#####
